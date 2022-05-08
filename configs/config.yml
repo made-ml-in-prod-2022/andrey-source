@@ -1,0 +1,36 @@
+data_path: '../data/heart_cleveland_upload.csv'
+features:
+  cat_features:
+    - "cp"
+    - "slope"
+    - "thal"
+  num_features:
+    - "age"
+    - "sex"
+    - "trestbps"
+    - "chol"
+    - "fbs"
+    - "thalach"
+    - "exang"
+    - "oldpeak"
+    - "ca"
+  target:
+    - "condition"
+  split_params:
+    train_size: 0.75
+    random_state: 42
+    stratify: True
+
+  cat_transformer:
+    handle_unknown: "ignore"
+  num_transformer:
+    with_mean: True
+    with_std: True
+
+model:
+  C: 1
+  kernel: "rbf"
+  degree: 3
+  random_state: 42
+  class_weight: "balanced"
+

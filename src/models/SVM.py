@@ -25,7 +25,7 @@ def train_model(features: pd.DataFrame, target: pd.Series, params) -> Pipeline:
     model = Pipeline([
         ('preprocessor', preprocessor),
         ('SVM', SVC(C=params.C, kernel=params.kernel, degree=params.degree, random_state=params.random_state,
-                    class_weight=params.degree.class_weigth))
+                    class_weight=params.degree.class_weigth, probability=params.soft_classification))
     ])
     model.fit(features, target)
     return model
