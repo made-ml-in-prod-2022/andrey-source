@@ -1,4 +1,9 @@
-data_path: '../data/heart_cleveland_upload.csv'
+data_train_path: '../data/heart_cleveland_upload.csv'
+data_test_path: '../data/heart_cleveland_upload.csv'
+data_predict: '../artifacts/submission.csv'
+model_path: '../artifacts/svm_model.pkl'
+train_log_path: '../artifacts/train_log.log'
+predict_log_path: '../artifacts/predict_log.log'
 features:
   cat_features:
     - "cp"
@@ -14,23 +19,31 @@ features:
     - "exang"
     - "oldpeak"
     - "ca"
-  target:
-    - "condition"
-  split_params:
-    train_size: 0.75
-    random_state: 42
-    stratify: True
+target: "condition"
+split_params:
+  train_size: 0.75
+  random_state: 42
+  stratify: True
+  shuffle: True
 
-  cat_transformer:
-    handle_unknown: "ignore"
-  num_transformer:
-    with_mean: True
-    with_std: True
 
-model:
+transformers:
+  cat_transformers:
+    one_hot_encoder:
+      handle_unknown: "ignore"
+  num_transformers:
+    standard_scaler:
+      with_mean: True
+      with_std: True
+svm_params:
   C: 1
   kernel: "rbf"
   degree: 3
   random_state: 42
   class_weight: "balanced"
-
+  soft_classification: True
+metrics:
+  accuracy: True
+  recall: True
+  precision: True
+  roc_auc: True

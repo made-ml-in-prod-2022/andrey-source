@@ -5,35 +5,48 @@ from typing import List
 
 
 @dataclass()
-class SplitParams:
-    train_size: int = field(default=0.75)
-    random_state: int = field(default=42)
-    stratify: bool = field(default=True)
+class FeatureParams:
+    cat_features: List[str]
+    num_features: List[str]
 
 
 @dataclass()
-class CatTransformers:
+class SplitParams:
+    train_size: float = field(default=0.75)
+    random_state: int = field(default=42)
+    stratify: bool = field(default=True)
+    shuffle: bool = field(default=True)
+
+
+@dataclass()
+class OneHotEncoder:
     handle_unknown: str = field(default='ignore')
 
 
 @dataclass()
-class NumTransformers:
+class StandardScaler:
     with_mean: bool = field(default=True)
     with_std: bool = field(default=True)
 
 
 @dataclass()
-class FeatureParams:
-    cat_features: List[str]
-    num_features: List[str]
-    target: List[str]
-    split_params: SplitParams
-    cat_transformer: CatTransformers
-    num_transformer: NumTransformers
+class CatTransformers:
+    one_hot_encoder: OneHotEncoder
 
 
 @dataclass()
-class ModelParams:
+class NumTransformers:
+    standard_scaler: StandardScaler
+
+
+@dataclass()
+class Transformers:
+    cat_transformers: CatTransformers
+    num_transformers: NumTransformers
+
+
+@dataclass()
+class SVMParams:
     C: int = field(default=1)
     kernel: str = field(default='rbf')
     degree: int = field(default=3)
@@ -43,16 +56,32 @@ class ModelParams:
 
 
 @dataclass()
+class MetricsParams:
+    accuracy: bool = field(default=True)
+    recall: bool = field(default=True)
+    precision: bool = field(default=True)
+    roc_auc: bool = field(default=True)
+
+
+@dataclass()
 class Params:
-    data_path: str
+    data_train_path: str
+    data_test_path: str
+    data_predict: str
+    model_path: str
+    train_log_path: str
+    predict_log_path: str
     features: FeatureParams
-    model: ModelParams
+    target: str
+    split_params: SplitParams
+    transformers: Transformers
+    svm_params: SVMParams
+    metrics: MetricsParams
 
 
-model_schema = class_schema(Params)
-with open('../../configs/config.yml', 'r') as stream:
-    schema = model_schema()
-    test = schema.load(yaml.safe_load(stream))
-
-print(test.features)
+def read_params(path: str):
+    with open(path) as stream:
+        model_schema = class_schema(Params)
+        schema = model_schema()
+        return schema.load(yaml.safe_load(stream))
 
