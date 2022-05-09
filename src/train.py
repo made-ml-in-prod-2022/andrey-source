@@ -9,7 +9,6 @@ from models.svm import fit_model, predict_model
 from sklearn.model_selection import train_test_split
 
 
-
 @click.command(name='train')
 @click.argument('config_path')
 def train(config_path: str):
