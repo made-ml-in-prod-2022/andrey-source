@@ -32,9 +32,9 @@ python src/predict.py configs/config.yaml
 - [x] Проект имеет модульную структуру (2 балла)
 - [x] Использованы логгеры (2 балла)
 
-- [] Написаны тесты на отдельные модули и на прогон обучения и predict (3 балла)
+- [ ] Написаны тесты на отдельные модули и на прогон обучения и predict (3 балла)
 
-- [] Для тестов генерируются синтетические данные, приближенные к реальным (2 балла)
+- [ ] Для тестов генерируются синтетические данные, приближенные к реальным (2 балла)
    - можно посмотреть на библиотеки https://faker.readthedocs.io/en/, https://feature-forge.readthedocs.io/en/latest/
    - можно просто руками посоздавать данных, собственноручно написанными функциями.
 
@@ -45,7 +45,7 @@ python src/predict.py configs/config.yaml
    https://towardsdatascience.com/pipelines-custom-transformers-in-scikit-learn-the-step-by-step-guide-with-python-code-4a7d9b068156
 
 - [x] В проекте зафиксированы все зависимости (1 балл)
-- [] Настроен CI для прогона тестов, линтера на основе github actions (3 балла).
+- [ ] Настроен CI для прогона тестов, линтера на основе github actions (3 балла).
 Пример с пары: https://github.com/demo-ml-cicd/ml-python-package
 - [ ] Используется hydra  (https://hydra.cc/docs/intro/) (3 балла - доп баллы)
 
