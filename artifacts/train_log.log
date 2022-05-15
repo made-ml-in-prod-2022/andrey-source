@@ -229,3 +229,68 @@ INFO:Train:train metrics:
 INFO:Train:valid_metrics 
 	{'accuracy': 0.72, 'recall': 0.543, 'precision': 0.792}
 INFO:Train:save model at artifacts/svm_model.pkl
+INFO:Train:read config at configs/config1.yml
+INFO:Train:read dataset at data/heart_cleveland_upload.csv
+INFO:Train:Split dataset
+	SplitParams(train_size=0.75, random_state=42, stratify=True, shuffle=True)
+INFO:Train:features
+	FeatureParams(cat_features=['cp', 'slope', 'thal'], num_features=['age', 'sex', 'trestbps', 'chol', 'fbs', 'thalach', 'exang', 'oldpeak', 'ca'])
+INFO:Train:Preprocessing
+	Transformers(cat_transformers=CatTransformers(one_hot_encoder=OneHotEncoder(handle_unknown='ignore', custom_one_hot_encoder=False, custom_C=1.0)), num_transformers=NumTransformers(standard_scaler=StandardScaler(with_mean=True, with_std=True)))
+INFO:Train:train metrics: 
+	{'accuracy': 0.982, 'recall': 0.98, 'precision': 0.98}
+INFO:Train:valid_metrics 
+	{'accuracy': 0.72, 'recall': 0.543, 'precision': 0.792}
+INFO:Train:save model at artifacts/svm_model.pkl
+INFO:Train:read config at configs/config.yml
+INFO:Train:read dataset at data/heart_cleveland_upload.csv
+INFO:Train:Split dataset
+	SplitParams(train_size=0.75, random_state=42, stratify=True, shuffle=True)
+INFO:Train:features
+	FeatureParams(cat_features=['cp', 'slope', 'thal'], num_features=['age', 'sex', 'trestbps', 'chol', 'fbs', 'thalach', 'exang', 'oldpeak', 'ca'])
+INFO:Train:Preprocessing
+	Transformers(cat_transformers=CatTransformers(one_hot_encoder=OneHotEncoder(handle_unknown='ignore', custom_one_hot_encoder=True, custom_C=1.0)), num_transformers=NumTransformers(standard_scaler=StandardScaler(with_mean=True, with_std=True)))
+INFO:Train:train metrics: 
+	{'roc_auc': 0.954, 'accuracy': 0.901, 'recall': 0.882, 'precision': 0.9}
+INFO:Train:valid_metrics 
+	{'roc_auc': 0.91, 'accuracy': 0.827, 'recall': 0.686, 'precision': 0.923}
+INFO:Train:save model at artifacts/svm_model.pkl
+INFO:Train:read config at configs/config.yml
+INFO:Train:read dataset at data/heart_cleveland_upload.csv
+INFO:Train:Split dataset
+	SplitParams(train_size=0.75, random_state=42, stratify=True, shuffle=True)
+INFO:Train:features
+	FeatureParams(cat_features=['cp', 'slope', 'thal'], num_features=['age', 'sex', 'trestbps', 'chol', 'fbs', 'thalach', 'exang', 'oldpeak', 'ca'])
+INFO:Train:Preprocessing
+	Transformers(cat_transformers=CatTransformers(one_hot_encoder=OneHotEncoder(handle_unknown='ignore', custom_one_hot_encoder=True, custom_C=1.0)), num_transformers=NumTransformers(standard_scaler=StandardScaler(with_mean=True, with_std=True)))
+INFO:Train:train metrics: 
+	{'roc_auc': 0.954, 'accuracy': 0.901, 'recall': 0.882, 'precision': 0.9}
+INFO:Train:valid_metrics 
+	{'roc_auc': 0.91, 'accuracy': 0.827, 'recall': 0.686, 'precision': 0.923}
+INFO:Train:save model at artifacts/svm_model.pkl
+INFO:Train:read config at configs/config.yml
+INFO:Train:read dataset at data/heart_cleveland_upload.csv
+INFO:Train:Split dataset
+	SplitParams(train_size=0.75, random_state=42, stratify=True, shuffle=True)
+INFO:Train:features
+	FeatureParams(cat_features=['cp', 'slope', 'thal'], num_features=['age', 'sex', 'trestbps', 'chol', 'fbs', 'thalach', 'exang', 'oldpeak', 'ca'])
+INFO:Train:Preprocessing
+	Transformers(cat_transformers=CatTransformers(one_hot_encoder=OneHotEncoder(handle_unknown='ignore', custom_one_hot_encoder=True, custom_C=1.0)), num_transformers=NumTransformers(standard_scaler=StandardScaler(with_mean=True, with_std=True)))
+INFO:Train:train metrics: 
+	{'roc_auc': 0.954, 'accuracy': 0.901, 'recall': 0.882, 'precision': 0.9}
+INFO:Train:valid_metrics 
+	{'roc_auc': 0.91, 'accuracy': 0.827, 'recall': 0.686, 'precision': 0.923}
+INFO:Train:save model at artifacts/svm_model.pkl
+INFO:Train:read config at configs/config1.yml
+INFO:Train:read dataset at data/heart_cleveland_upload.csv
+INFO:Train:Split dataset
+	SplitParams(train_size=0.75, random_state=42, stratify=True, shuffle=True)
+INFO:Train:features
+	FeatureParams(cat_features=['cp', 'slope', 'thal'], num_features=['age', 'sex', 'trestbps', 'chol', 'fbs', 'thalach', 'exang', 'oldpeak', 'ca'])
+INFO:Train:Preprocessing
+	Transformers(cat_transformers=CatTransformers(one_hot_encoder=OneHotEncoder(handle_unknown='ignore', custom_one_hot_encoder=False, custom_C=1.0)), num_transformers=NumTransformers(standard_scaler=StandardScaler(with_mean=True, with_std=True)))
+INFO:Train:train metrics: 
+	{'accuracy': 0.982, 'recall': 0.98, 'precision': 0.98}
+INFO:Train:valid_metrics 
+	{'accuracy': 0.72, 'recall': 0.543, 'precision': 0.792}
+INFO:Train:save model at artifacts/svm_model.pkl

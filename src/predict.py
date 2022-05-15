@@ -6,9 +6,9 @@ from utils.read_config import read_params
 from models.svm import predict_model
 
 
-@click.command(name="predict")
+@click.command(name="predict_pipeline")
 @click.argument("config_path")
-def predict(config_path: str):
+def predict_pipeline(config_path: str):
     params = read_params(config_path)
     logging.basicConfig(filename=params.predict_log_path, level="INFO")
     logger = logging.getLogger("Predict")
@@ -26,4 +26,4 @@ def predict(config_path: str):
 
 
 if __name__ == "__main__":
-    predict()
+    predict_pipeline()

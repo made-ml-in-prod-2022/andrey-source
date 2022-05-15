@@ -1,10 +1,10 @@
 import unittest
 import numpy as np
 import pandas as pd
-from src.utils import read_params, calculate_metrics
-from src.models import fit_model, predict_model, CustomOneHotEncoder
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
+from src.utils import read_params, calculate_metrics
+from src.models import fit_model, predict_model, CustomOneHotEncoder
 
 
 class TestProject(unittest.TestCase):
@@ -13,10 +13,10 @@ class TestProject(unittest.TestCase):
         params = read_params('tests/data_test/config.yml')
         self.assertEqual(params.data_train_path, 'tests/data_test/heart_cleveland_upload.csv')
         self.assertEqual(params.data_test_path, 'tests/data_test/heart_cleveland_upload_test.csv')
-        self.assertEqual(params.data_predict, 'artifacts/submission.csv')
-        self.assertEqual(params.model_path, 'artifacts/svm_model.pkl')
-        self.assertEqual(params.train_log_path, 'artifacts/train_log.log')
-        self.assertEqual(params.predict_log_path, 'artifacts/predict_log.log')
+        self.assertEqual(params.data_predict, 'tests/data_test/artifacts/submission.csv')
+        self.assertEqual(params.model_path, 'tests/data_test/artifacts/svm_model.pkl')
+        self.assertEqual(params.train_log_path, 'tests/data_test/artifacts/train_log.log')
+        self.assertEqual(params.predict_log_path, 'tests/data_test/artifacts/predict_log.log')
         self.assertListEqual(params.features.cat_features, ['cp', 'slope', 'thal'])
         self.assertListEqual(params.features.num_features, ['age', 'sex', 'trestbps', 'chol', 'fbs',
                                                    'thalach', 'exang', 'oldpeak', 'ca'])
@@ -43,10 +43,10 @@ class TestProject(unittest.TestCase):
         with self.assertRaises(Exception):
             self.assertEqual(params.data_train_path, 'tests/dta/heart_clevelad_upload.csv')
             self.assertEqual(params.data_test_path, 'tests/daa/heart_cleveland_upload_test.cv')
-            self.assertEqual(params.data_predict, 'artfacts/submission.csv')
-            self.assertEqual(params.model_path, 'artfacts/svm_model.pkl')
-            self.assertEqual(params.train_log_path, 'artifacts/trai_log.log')
-            self.assertEqual(params.predict_log_path, 'artifats/predict_log.log')
+            self.assertEqual(params.data_predict, 'tests/data_test/artfacts/submission.csv')
+            self.assertEqual(params.model_path, 'tests/data_test/artfacts/svm_model.pkl')
+            self.assertEqual(params.train_log_path, 'tests/data_test/artifacts/trai_log.log')
+            self.assertEqual(params.predict_log_path, 'tests/data_test/artifats/predict_log.log')
             self.assertListEqual(params.features.cat_features, ['cp', 'thalach', 'slope', 'thal'])
             self.assertListEqual(params.features.num_features, ['age', 'sex', 'trestbps', 'chol', 'fbs',
                                                                 'exang', 'oldpeak', 'ca'])

@@ -5,13 +5,14 @@ import pickle
 
 from utils.read_config import read_params
 from utils.metrics import calculate_metrics
+
 from models.svm import fit_model, predict_model
 from sklearn.model_selection import train_test_split
 
 
-@click.command(name="train")
+@click.command(name="train_pipeline")
 @click.argument("config_path")
-def train(config_path: str):
+def train_pipeline(config_path: str):
     params = read_params(config_path)
     logging.basicConfig(filename=params.train_log_path, level="INFO")
     logger = logging.getLogger("Train")
@@ -57,4 +58,4 @@ def train(config_path: str):
 
 
 if __name__ == "__main__":
-    train()
+    train_pipeline()

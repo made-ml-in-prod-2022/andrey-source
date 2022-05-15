@@ -43,3 +43,15 @@ INFO:Predict:read config at configs/config1.yml
 INFO:Predict:read dataset at data/heart_cleveland_upload_test.csv
 INFO:Predict:load model at artifacts/svm_model.pkl
 INFO:Predict:The forecast by address data/heart_cleveland_upload_test.csv
+INFO:Predict:read config at configs/config.yml
+INFO:Predict:read dataset at data/heart_cleveland_upload_test.csv
+INFO:Predict:load model at artifacts/svm_model.pkl
+INFO:Predict:The forecast by address data/heart_cleveland_upload_test.csv
+INFO:Predict:read config at configs/config.yml
+INFO:Predict:read dataset at data/heart_cleveland_upload_test.csv
+INFO:Predict:load model at artifacts/svm_model.pkl
+INFO:Predict:The forecast by address data/heart_cleveland_upload_test.csv
+INFO:Predict:read config at configs/config1.yml
+INFO:Predict:read dataset at data/heart_cleveland_upload_test.csv
+INFO:Predict:load model at artifacts/svm_model.pkl
+INFO:Predict:The forecast by address data/heart_cleveland_upload_test.csv
