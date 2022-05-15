@@ -30,6 +30,8 @@ split_params:
 transformers:
   cat_transformers:
     one_hot_encoder:
+      custom_C: 1
+      custom_one_hot_encoder: False
       handle_unknown: "ignore"
   num_transformers:
     standard_scaler:

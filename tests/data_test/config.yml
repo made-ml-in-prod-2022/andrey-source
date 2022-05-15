@@ -1,5 +1,5 @@
-data_train_path: 'data/heart_cleveland_upload.csv'
-data_test_path: 'data/heart_cleveland_upload_test.csv'
+data_train_path: 'tests/data_test/heart_cleveland_upload.csv'
+data_test_path: 'tests/data_test/heart_cleveland_upload_test.csv'
 data_predict: 'artifacts/submission.csv'
 model_path: 'artifacts/svm_model.pkl'
 train_log_path: 'artifacts/train_log.log'
@@ -30,8 +30,8 @@ split_params:
 transformers:
   cat_transformers:
     one_hot_encoder:
-      custom_one_hot_encoder: True
       custom_C: 1
+      custom_one_hot_encoder: True
       handle_unknown: "ignore"
   num_transformers:
     standard_scaler:

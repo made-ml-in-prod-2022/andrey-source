@@ -21,6 +21,8 @@ class SplitParams:
 @dataclass()
 class OneHotEncoder:
     handle_unknown: str = field(default='ignore')
+    custom_one_hot_encoder: bool = field(default=True)
+    custom_C: float = field(default=1)
 
 
 @dataclass()
