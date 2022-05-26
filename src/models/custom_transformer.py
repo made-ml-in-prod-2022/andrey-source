@@ -20,7 +20,7 @@ class CustomOneHotEncoder(BaseEstimator, TransformerMixin):
 
     def transform(self, X, *_):
         if self.mask is None:
-            raise Exception('CustomColumnTransformer')
+            raise Exception('Transformer is not fitted')
         data_copy = X.copy()
         data_copy = self.one_hot.transform(data_copy)
         return data_copy[:, self.mask]

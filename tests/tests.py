@@ -100,7 +100,14 @@ class TestProject(unittest.TestCase):
         params.svm_params.soft_classification = True
         soft_predict = predict_model(model, x_train, params)
         metrics = calculate_metrics(y_train, soft_predict, params)
-        self.assertDictEqual({'roc_auc': 0.963, 'accuracy': 0.909, 'recall': 0.891, 'precision': 0.91}, metrics)
+        roc_correct = np.abs(metrics['roc_auc'] - 0.963) / 0.963 < 0.05
+        acc_correct = np.abs(metrics['accuracy'] - 0.909) / 0.909 < 0.05
+        recall_correct = np.abs(metrics['recall'] - 0.891) / 0.891 < 0.05
+        precision_correct = np.abs(metrics['precision'] - 0.91) / 0.91 < 0.05
+        self.assertTrue(roc_correct)
+        self.assertTrue(acc_correct)
+        self.assertTrue(recall_correct)
+        self.assertTrue(precision_correct)
         params.svm_params.soft_classification = False
         model = fit_model(x_train, y_train, params)
         hard_predict = predict_model(model, x_train, params)
@@ -108,9 +115,12 @@ class TestProject(unittest.TestCase):
             metrics = calculate_metrics(y_train, hard_predict, params)
         params.metrics.roc_auc = False
         metrics = calculate_metrics(y_train, hard_predict, params)
-        self.assertDictEqual({'accuracy': 0.906, 'recall': 0.898, 'precision': 0.898}, metrics)
-        with self.assertRaises(Exception):
-            self.assertDictEqual({'roc_auc': 0.963, 'accuracy': 0.909, 'recall': 0.891, 'precision': 0.91}, metrics)
+        acc_correct = np.abs(metrics['accuracy'] - 0.906) / 0.906 < 0.05
+        recall_correct = np.abs(metrics['recall'] - 0.898) / 0.898 < 0.05
+        precision_correct = np.abs(metrics['precision'] - 0.898) / 0.898 < 0.05
+        self.assertTrue(acc_correct)
+        self.assertTrue(recall_correct)
+        self.assertTrue(precision_correct)
 
 
     def test_CustomOneHotEncoder(self):

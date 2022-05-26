@@ -12,7 +12,7 @@ def predict_pipeline(config_path: str):
     params = read_params(config_path)
     logging.basicConfig(filename=params.predict_log_path, level="INFO")
     logger = logging.getLogger("Predict")
-    logger.info("read config at {}".format(config_path))
+    logger.info(f"read config at {config_path}")
     df = pd.read_csv(params.data_test_path)
     logger.info("read dataset at {}".format(params.data_test_path))
     with open(params.model_path, "rb") as file:
@@ -22,7 +22,7 @@ def predict_pipeline(config_path: str):
     pred = predict_model(model, df[features], params)
     pred_df = pd.DataFrame(pred)
     pred_df.to_csv(params.data_predict)
-    logger.info("The forecast by address {}".format(params.data_test_path))
+    logger.info(f"The forecast by address {params.data_test_path}")
 
 
 if __name__ == "__main__":
