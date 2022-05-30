@@ -12,7 +12,7 @@ def calculate_metrics(y_true: pd.Series, y_pred: np.ndarray, params) -> Dict[str
             metrics['roc_auc'] = np.round(roc_auc_score(y_true.values, y_pred[:, 1]), 3)
             y_pred = y_pred.argmax(axis=1)
         else:
-            raise ValueError("for calculate roc_auc need model.soft_classification True")
+            raise Exception("for calculate roc_auc need model.soft_classification True")
     if params.metrics.accuracy:
         metrics['accuracy'] = np.round(accuracy_score(y_true, y_pred), 3)
     if params.metrics.recall:

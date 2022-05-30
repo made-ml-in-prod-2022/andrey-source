@@ -4,6 +4,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.svm import SVC
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from .custom_transformer import CustomOneHotEncoder
 
 
 def fit_model(features: pd.DataFrame, target: pd.Series, params) -> Pipeline:
@@ -11,9 +12,14 @@ def fit_model(features: pd.DataFrame, target: pd.Series, params) -> Pipeline:
     with_mean = params.transformers.num_transformers.standard_scaler.with_mean
     with_std = params.transformers.num_transformers.standard_scaler.with_std
     feature_params = params.features
-    cat_transformer = Pipeline(steps=[
-        ('OneHotEncoder', OneHotEncoder(handle_unknown=handle_unknown))
-    ])
+
+    if params.transformers.cat_transformers.one_hot_encoder.custom_one_hot_encoder:
+        cat_transformer = CustomOneHotEncoder(C=params.transformers.cat_transformers.one_hot_encoder.custom_C,
+                                              handle_unknown=handle_unknown)
+    else:
+        cat_transformer = Pipeline(steps=[
+            ('OneHotEncoder', OneHotEncoder(handle_unknown=handle_unknown))
+        ])
     num_transformer = Pipeline(steps=[
         ('StandardScaler', StandardScaler(with_mean=with_mean, with_std=with_std))
     ])
